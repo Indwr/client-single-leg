@@ -84,12 +84,12 @@ defined('EXIT_USER_INPUT')     or define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       or define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
-define('title', 'MLM SOFT SOLUTIONS');
-define('md', 'MLM SOFT SOLUTIONS');
+define('title', 'Linear Pay');
+define('md', 'Linear Pay');
 define('logo', 'uploads/logo.png');
-define('email', 'info@mlmsoftsolutions.com');
-define('phone', '83067-77848');
-define('address', 'First Floor, 96, P Block, Sri Ganganagar, Rajasthan 335001');
+define('email', 'info@linearpay.co.in');
+define('phone', '9874563210');
+define('address', 'First Floor, 6363, D Block, Los Angless, USA 987456');
 define('year', date('Y'));
 define('datetime_stamp', date('Y-m-d H:i:s'));
 define('date_stamp', date('Y-m-d'));

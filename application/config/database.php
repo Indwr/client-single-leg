@@ -79,9 +79,9 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$dbPassword = 'password';
 	$dbDatabase = 'single-leg';
 } else {
-	$dbUsername = 'vikas';
+	$dbUsername = 'test';
 	$dbPassword = 'password';
-	$dbDatabase = 'single-leg';
+	$dbDatabase = 'test';
 }
 $db['default'] = array(
 	'dsn'	=> '',

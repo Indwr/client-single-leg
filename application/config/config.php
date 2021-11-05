@@ -25,15 +25,11 @@ ob_start();
 |
 */
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-	$config['base_url'] = 'http://localhost/mlm-projects/single-leg';
+	$config['base_url'] = 'http://localhost/client/single-leg/';
 } else {
-	$config['base_url'] = 'https://single-leg.mlmsoftsolutions.com/App/';
+	$config['base_url'] = 'http://linearpay.co.in/App/';
 }
-// $config['base_url'] = 'https://amazingdealindia.com/';
-// $root  = "http://".$_SERVER['HTTP_HOST'];
-// $root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
-// $config['base_url'] =$root;
 /*
 |--------------------------------------------------------------------------
 | Index File
