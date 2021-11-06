@@ -101,12 +101,12 @@ class Activation extends CI_Controller {
                         $package = $response['package'];
                         if (!empty($user)) {
                            if ($pin_status['status'] == 0) {
-                                if ($user['paid_status'] == 0 && $pin_status['amount'] == 600) { 
+                                if ($user['paid_status'] == 0 && $pin_status['amount'] == $package['price']) { 
                                     if ($activatorData['master_key'] == trim(addslashes($data['txn_password']))) { 
                                         $topupData = array(
                                                 'paid_status' => 1,
-                                                'package_id' => 1,
-                                                'package_amount' => 600,
+                                                'package_id' => $package['id'],
+                                                'package_amount' => $package['price'],
                                                 'topup_date' => date('Y-m-d H:i:s'),
                                             );
                                             $this->User_model->update('tbl_users', array('user_id' => $user_id), $topupData);

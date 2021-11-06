@@ -121,12 +121,13 @@ if (!function_exists('incomes')) {
 
     function incomes() {
         $incomes = array(
+            'self_income' => 'Self Income',
             'direct_income'=> 'Direct Income',
             'level_income'=> 'Level Income',
-            'single_leg_income'=> 'Single Leg Income',
-            'double_leg_income'=> 'Double Leg Income',
-            'royalty_income'=> 'Royalty Income',
-            'leadership_income'=> 'Leadership Income',
+            'fast_income'=> 'Fast Income',
+            'club_income'=> 'Club Income',
+            // 'royalty_income'=> 'Royalty Income',
+            // 'leadership_income'=> 'Leadership Income',
             // 'non_working_income'=> 'Non-Working Income',
         );
         //matching bonus
@@ -139,12 +140,15 @@ if (!function_exists('incomes')) {
 if(!function_exists('calculate_incomes')){
     function calculate_incomes($incomeArr){
         $incomeNames = array(
+            'self_income',
+            'fast_income',
+            'club_income',
             'direct_income',
             'level_income',
-            'pool_income',
-            'single_leg_income',
-            'double_leg_income',
-            'non_working_income'
+            // 'pool_income',
+            // 'single_leg_income',
+            // 'double_leg_income',
+            // 'non_working_income'
         );
         $incomeVal = array();
         foreach($incomeNames as $key => $name){
