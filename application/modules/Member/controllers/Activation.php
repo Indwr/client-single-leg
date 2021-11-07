@@ -112,7 +112,8 @@ class Activation extends CI_Controller {
                                             $this->User_model->update('tbl_users', array('user_id' => $user_id), $topupData);
                                             $this->User_model->update('tbl_epins', array('id' => $pin_status['id']), array('used_for' => $user['user_id'], 'status' => 1));
                                             $this->User_model->update_directs($user['sponser_id']);
-                                            $this->User_model->total_team_update($user['id']);
+                                            $this->User_model->update('tbl_downline_count', array('downline_id' => $user_id),['paid_status' => 1,'amount' => $package['price'],'activeDate' => date('Y-m-d H:i:s')]);
+                                            //$this->User_model->total_team_update($user['id']);
                                             // $this->User_model->upgrade_total_team_update($user['id']);
                                             $sponser = $this->User_model->get_single_record('tbl_users', array('user_id' => $user['sponser_id']), '*');
                                             
@@ -126,9 +127,10 @@ class Activation extends CI_Controller {
                                                 );
                                                 $this->User_model->add('tbl_income_wallet', $DirectIncome);
                                             }
-                                            $this->level_income($sponser['sponser_id'], $user['user_id'], $package['level_income']);
+                                            //$this->level_income($sponser['sponser_id'], $user['user_id'], $package['level_income']);
                                             $this->add_team_counts($user['user_id'], $user['user_id']);
-                                            $this->royaltyAchiever($user['sponser_id']);
+                                            $this->fastIncome($user['sponser_id']);
+                                            //$this->royaltyAchiever($user['sponser_id']);
                                             $this->session->set_flashdata('success', 'Account Activated Successfully');
                                             redirect('Member/Epin/AvailebleEpin');
                                     }else {
@@ -197,11 +199,70 @@ class Activation extends CI_Controller {
             }
             
             $response['available_pins'] = $this->User_model->get_single_record('tbl_epins', array('user_id' => $this->session->userdata['user_id'], 'status' => 0), 'ifnull(count(id),0) as available_pins');
-            $response['packages'] = $this->User_model->get_records('tbl_package', array(), '*');
+            $epinDetails = $this->User_model->get_single_record('tbl_epins', array('epin' => $response['epin'], 'status' => 0), '*');
+            $response['packages'] = $this->User_model->get_records('tbl_package', array('price' => $epinDetails['amount']), '*');
             $this->load->view('activation',$response);
         }else{
             redirect('Member/Management/login');
         }
+    }
+
+    // public function test(){
+    //     $this->fastIncome('admin');
+    // }
+
+    private function fastIncome($user_id){
+        $user = $this->User_model->get_single_record('tbl_users',['paid_status' => 1,'directs >=' => 10,'fastIncome <' => 100,'user_id' => $user_id],'user_id,topup_date,fastIncome');
+        if(!empty($user['user_id'])):
+            $date1 = date('Y-m-d H:i:s');
+            $date2 = date('Y-m-d H:i:s',strtotime($user['topup_date'].' + 30 days'));
+            $date3 = date('Y-m-d H:i:s',strtotime($user['topup_date'].' + 20 days'));
+            $date4 = date('Y-m-d H:i:s',strtotime($user['topup_date'].' + 10 days'));
+            $diff1 = strtotime($date2) - strtotime($date1);
+            $diff2 = strtotime($date3) - strtotime($date1);
+            $diff3 = strtotime($date4) - strtotime($date1);
+            if($diff1 > 0):
+                $direct = $this->User_model->get_single_record('tbl_users',['sponser_id' => $user['user_id'],'topup_date >=' => $user['topup_date'],'topup_date <=' => $date2],'count(id) as direct');
+                $amount = 100 - $user['fastIncome'];
+                if($direct['direct'] == 30){
+                    $creditIncome = [
+                        'user_id' => $user['user_id'],
+                        'amount' => $amount,
+                        'type' => 'fast_income',
+                        'description' => 'Fast Income at 30 directs',
+                    ];
+                    $this->User_model->add('tbl_income_wallet',$creditIncome);
+                    $this->User_model->update('tbl_users',['user_id' => $user['user_id']],['fastIncome' => ($user['fastIncome']+$amount)]);
+                }
+            endif; 
+            if($diff2 > 0):
+                $amount = 60 - $user['fastIncome'];
+                $direct = $this->User_model->get_single_record('tbl_users',['sponser_id' => $user['user_id'],'topup_date >=' => $user['topup_date'],'topup_date <=' => $date3],'count(id) as direct');
+                if($direct['direct'] == 20){
+                    $creditIncome = [
+                        'user_id' => $user['user_id'],
+                        'amount' => $amount,
+                        'type' => 'fast_income',
+                        'description' => 'Fast Income at 20 directs',
+                    ];
+                    $this->User_model->add('tbl_income_wallet',$creditIncome);
+                    $this->User_model->update('tbl_users',['user_id' => $user['user_id']],['fastIncome' => ($user['fastIncome']+$amount)]);
+                }
+            endif; 
+            if($diff3 > 0):
+                $direct = $this->User_model->get_single_record('tbl_users',['sponser_id' => $user['user_id'],'topup_date >=' => $user['topup_date'],'topup_date <=' => $date4],'count(id) as direct');
+                if($direct['direct'] == 10){
+                    $creditIncome = [
+                        'user_id' => $user['user_id'],
+                        'amount' => 25,
+                        'type' => 'fast_income',
+                        'description' => 'Fast Income at 10 directs',
+                    ];
+                    $this->User_model->add('tbl_income_wallet',$creditIncome);
+                    $this->User_model->update('tbl_users',['user_id' => $user['user_id']],['fastIncome' => '25']);
+                }
+            endif; 
+        endif;
     }
 
 
@@ -304,7 +365,9 @@ class Activation extends CI_Controller {
     }
 
     private function level_income($sponser_id, $activated_id, $package_income) {
-        $incomes = explode(',', $package_income);
+
+        $incomes = [];
+        //$incomes = explode(',', $package_income);
         foreach ($incomes as $key => $income) {
             $sponser = $this->User_model->get_single_record('tbl_users', array('user_id' => $sponser_id), 'id,user_id,sponser_id,paid_status');
             if (!empty($sponser)) {

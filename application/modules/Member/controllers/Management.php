@@ -121,7 +121,7 @@ class Management extends CI_Controller
                         if ($insert2) {
                             $this->add_counts($user_id, $user_id, $level = 1);
                             $sms_text = 'Dear ' . $data['name'] . ', Your Account Successfully created. User ID: ' . $user_id . ' Password: ' . $password . ' Txn Password: ' . $txn_password . ' For more detail visit ' . str_replace('/App', '', base_url());
-                            notify_user($user_id, $sms_text, $temp_id = '1407161548817194673');
+                            //notify_user($user_id, $sms_text, $temp_id = '1407161548817194673');
 
                             $response['message'] = '<h5 class="text-success text-center">Dear ' . $data['name'] . ', Your Account Successfully created. </h5><br>User ID : ' . $user_id . '<br> Password: ' . $password . ' <br>Txn Password: ' . $txn_password . '<br>Phone No : ' . trim(addslashes($data['phone'])) . '<br>Sponser ID : ' . trim(addslashes($data['sponser_id'])) . '<br>';
                             $this->load->view('success', $response);
@@ -149,19 +149,18 @@ class Management extends CI_Controller
 
     private function add_counts($user_name = '', $downline_id = '', $level)
     {
-        // $user = $this->User_model->get_single_record('tbl_users', array('user_id' => $user_name), $select = 'sponser_id,user_id');
-        // if ($user['sponser_id'] != '') {
-        //     $downlineArray = array(
-        //         'user_id' => $user['sponser_id'],
-        //         'downline_id' => $downline_id,
-        //         'position' => '',
-        //         'created_at' => 'CURRENT_TIMESTAMP',
-        //         'level' => $level,
-        //     );
-        //     $this->User_model->add('tbl_downline_count', $downlineArray);
-        //     $user_name = $user['sponser_id'];
-        //     $this->add_counts($user_name, $downline_id, $level + 1);
-        // }
+        $user = $this->User_model->get_single_record('tbl_users', array('user_id' => $user_name), $select = 'sponser_id,user_id');
+        if ($user['sponser_id'] != '') {
+            $downlineArray = array(
+                'user_id' => $user['sponser_id'],
+                'downline_id' => $downline_id,
+                'position' => '',
+                'level' => $level,
+            );
+            $this->User_model->add('tbl_downline_count', $downlineArray);
+            $user_name = $user['sponser_id'];
+            $this->add_counts($user_name, $downline_id, $level + 1);
+        }
     }
 
     // public function password() {
@@ -190,7 +189,7 @@ class Management extends CI_Controller
     private function randUser_id()
     {
 
-        $user_id = 'PSB' . rand(100000, 999999);
+        $user_id = ''.rand(100000, 999999);
         $data = $this->User_model->get_records('tbl_users', array('user_id' => $user_id), '*');
         if (!empty($data)) {
             return $this->randUser_id();

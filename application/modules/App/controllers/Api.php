@@ -264,6 +264,7 @@ class Api extends CI_Controller
         echo json_encode($response);
         exit;
     }
+
     public function getRoutes()
     {
         $data['routes'] = [
@@ -293,7 +294,6 @@ class Api extends CI_Controller
                     ['title' => 'Leadership Income', 'url' => 'Member/Incomes/index/leadership_income'],
                     ['title' => 'Royalty Income', 'url' => 'Member/Incomes/index/royalty_income'],
                     ['title' => 'All Income Reports', 'url' => 'Member/Incomes/index'],
-
                 ]
             ],
             [
