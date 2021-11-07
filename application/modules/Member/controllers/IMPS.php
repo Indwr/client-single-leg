@@ -10,10 +10,7 @@ class IMPS extends CI_Controller {
         $this->load->model(array('User_model'));
         $this->load->helper(array('user', 'birthdate', 'security', 'email'));
         date_default_timezone_set('Asia/Kolkata');
-      // $this->api_token = "623455573391844"; /// Anil Api (A.S Soft Solution - Anil Kumar) 
-       $this->api_token = ""; // Sunil Api ( Sunil Kumar)
-         //$this->api_token = "177653283932743"; // Arun Api (Arun Kumar)
-        //$this->api_token = "156996308911217"; // Ramanjeet Api
+       $this->api_token = ""; 
     }
 
     public function index(){
