@@ -209,16 +209,15 @@ class Api extends CI_Controller
         $totalIncome = $this->Main_model->get_single_record('tbl_income_wallet', array('user_id' => $params['user_id'], 'amount >' => 0, 'type !=' => 'bank_transfer'), 'ifnull(sum(amount),0) as totalIncome');
         $userData = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image,sponser_id,package_amount,email');
         $sponsorName = $this->Main_model->get_single_record('tbl_users', array('user_id' => $userData['sponser_id']), 'name');
-
         $response['result'] = [
 
             'userData' => [
                 'name' => $userData['name'],
                 'memberRank' => 'Silver',
                 'memberPackage' => '$' . $userData['package_amount'],
-                'sponsorName' => $sponsorName['name'],
-                'email'     => $userData['email'],
-                'profile_url' => $userData['image'],
+                'sponsorName' => $sponsorName['name'] ?? '',
+                'email'     => $userData['email'] ?? '',
+                'profile_url' => $userData['image'] ?? '',
             ],
             'incomes' => [
                 [
@@ -304,5 +303,37 @@ class Api extends CI_Controller
         ];
         echo json_encode($data);
         exit;
+    }
+
+    public function getTimmer()
+    {
+        $params = $this->security->xss_clean($this->input->get());
+        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image');
+        if ($checkUserId == null or empty($checkUserId)) {
+            $response = ['status' => 500, 'message' => 'User Id not exist please check and try again later..'];
+            echo json_encode($response);
+            exit();
+        }
+        $timmer = $this->Main_model->get_single_record('settings', [], 'timmer');
+        echo "<pre>";
+        print_r($timmer['timmer']);
+        die();
+    }
+
+    public function cleanNow()
+    {
+        $params = $this->security->xss_clean($this->input->post());
+        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image');
+        if ($checkUserId == null or empty($checkUserId)) {
+            $response = ['status' => 500, 'message' => 'User Id not exist please check and try again later..'];
+            echo json_encode($response);
+            exit();
+        }
+
+        // Check how many times income has been received by any user @sanjay
+
+        // send self income @sanjay
+
+        // Send Level Income if Sponsor and level users are eligible @sanjay
     }
 }

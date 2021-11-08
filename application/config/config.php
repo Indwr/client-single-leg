@@ -25,7 +25,7 @@ ob_start();
 |
 */
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-	$config['base_url'] = 'http://localhost/projects/client-single-leg/client-single-leg/';
+	$config['base_url'] = 'http://localhost/client/single-leg/';
 } else {
 	$config['base_url'] = 'https://linearpay.co.in/';
 }
@@ -463,7 +463,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array('Site/Main/check_sponser', 'Dashboard/Support/SubmitQuery', 'Admin/Support/SubmitQuery', 'Dashboard/Withdraw/jolo_callback_url', 'Dashboard/SecureWithdraw/callBackUrl', 'Member/IMPS/callBackUrl', 'App/Api/createPost', 'App/Api/createComment', 'App/Api/createLike');
+$config['csrf_exclude_uris'] = array('Site/Main/check_sponser', 'Dashboard/Support/SubmitQuery', 'Admin/Support/SubmitQuery', 'Dashboard/Withdraw/jolo_callback_url', 'Dashboard/SecureWithdraw/callBackUrl', 'Member/IMPS/callBackUrl', 'App/Api/createPost', 'App/Api/createComment', 'App/Api/createLike', 'App/Api/cleanNow');
 //$config['csrf_exclude_uris'] = array('Dashboard/User/Step2');
 
 /*
@@ -535,10 +535,10 @@ $config['proxy_ips'] = '';
 
 $config['incomes'] = [
 	'self_income' => 'Self Income',
-	'direct_income'=> 'Direct Income',
-	'level_income'=> 'Level Income',
-	'fast_income'=> 'Fast Income',
-	'club_income'=> 'Club Income'
+	'direct_income' => 'Direct Income',
+	'level_income' => 'Level Income',
+	'fast_income' => 'Fast Income',
+	'club_income' => 'Club Income'
 ];
 
 $config['colors'] = [0 => 'purpink', 1 => 'scooter', 2 => 'ibiza', 3 => 'ohhappiness', 4 => 'purpink', 5 => 'scooter', 6 => 'ibiza', 7 => 'ohhappiness', 8 => 'purpink'];
