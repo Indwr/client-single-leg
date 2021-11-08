@@ -276,5 +276,20 @@ class Main_model extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+ 
+    public function incomeTransfer() {
+        $this->db->select('ifnull(sum(amount),0) as balance,user_id');
+        $this->db->group_by('user_id');
+        $this->db->having('balance >','0');
+        $query = $this->db->get('tbl_income_wallet');
+        $res = $query->result_array();
+        return $res;
+    }
+
+    public function updateField($table,$field,$fieldData,$where){
+        $this->db->set($field, $fieldData, FALSE);
+        $this->db->where($where);
+        $this->db->update($table); 
+    }
 
 }

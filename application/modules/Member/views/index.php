@@ -174,7 +174,7 @@
 
 
 
-	      <div class="col-12 col-lg-6 col-xl-3">
+	      <div class="col-12 col-lg-6 col-xl-3 d-none">
 	        <div class="card gradient-ohhappiness new">
 	          <div class="card-body">
 	            <div class="media">
@@ -190,7 +190,7 @@
 	        </div>
 	      </div>
 
-	      <div class="col-12 col-lg-6 col-xl-3">
+	      <div class="col-12 col-lg-6 col-xl-3 d-none">
 	        <div class="card gradient-ohhappiness new">
 	          <div class="card-body">
 	            <div class="media">
@@ -348,7 +348,7 @@
 
 
 	    <div class="row">
-	      <div class="col-12 col-lg-6 col-xl-6">
+	      <div class="col-12 col-lg-6 col-xl-6 d-none">
 	        <div class="card" style="height: 90%;">
 	          <div class="card-header">
 	            Royalty Achivers
@@ -390,7 +390,7 @@
 	          </div>
 	        </div>
 	      </div>
-	      <div class="col-12 col-lg-6 col-xl-6">
+	      <div class="col-12 col-lg-6 col-xl-6 d-none">
 	        <div class="card" style="height: 90%;">
 	          <div class="card-header">
 	            Leadership Achivers
@@ -435,7 +435,7 @@
 	    </div>
 	    <!--End Row-->
 
-	    <div class="row">
+	    <div class="row d-none">
 	      <div class="col-lg-12">
 	        <div class="card">
 	          <div class="card-header border-0">

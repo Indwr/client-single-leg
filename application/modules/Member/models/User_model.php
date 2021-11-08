@@ -266,4 +266,10 @@ class User_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function updateField($table,$field,$fieldData,$where){
+        $this->db->set($field, $fieldData, FALSE);
+        $this->db->where($where);
+        $this->db->update($table); 
+    }
+
 }

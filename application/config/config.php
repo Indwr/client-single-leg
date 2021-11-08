@@ -25,7 +25,7 @@ ob_start();
 |
 */
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-	$config['base_url'] = 'http://localhost/client/single-leg/';
+	$config['base_url'] = 'http://localhost/projects/client-single-leg/client-single-leg/';
 } else {
 	$config['base_url'] = 'https://linearpay.co.in/';
 }
@@ -533,7 +533,13 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-$config['incomes'] = ['direct_income' => 'Direct Income', 'level_income' => 'Level Income', 'single_leg_income' => 'Single Leg Income', 'leadership_income' => 'Leadership Income', 'royalty_income' => 'Royalty Income'];
+$config['incomes'] = [
+	'self_income' => 'Self Income',
+	'direct_income'=> 'Direct Income',
+	'level_income'=> 'Level Income',
+	'fast_income'=> 'Fast Income',
+	'club_income'=> 'Club Income'
+];
 
 $config['colors'] = [0 => 'purpink', 1 => 'scooter', 2 => 'ibiza', 3 => 'ohhappiness', 4 => 'purpink', 5 => 'scooter', 6 => 'ibiza', 7 => 'ohhappiness', 8 => 'purpink'];
 

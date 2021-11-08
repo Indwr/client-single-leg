@@ -10,10 +10,7 @@ class IMPS extends CI_Controller {
         $this->load->model(array('User_model'));
         $this->load->helper(array('user', 'birthdate', 'security', 'email'));
         date_default_timezone_set('Asia/Kolkata');
-      // $this->api_token = "623455573391844"; /// Anil Api (A.S Soft Solution - Anil Kumar) 
-       $this->api_token = "192460283949182"; // Sunil Api ( Sunil Kumar)
-         //$this->api_token = "177653283932743"; // Arun Api (Arun Kumar)
-        //$this->api_token = "156996308911217"; // Ramanjeet Api
+       $this->api_token = ""; 
     }
 
     public function index(){
@@ -93,14 +90,15 @@ class IMPS extends CI_Controller {
                                 $withdraw_amount = trim(addslashes($this->input->post('amount')));
                                 $master_key = trim(addslashes($this->input->post('txn_password')));
                                 
-                                $balance = $this->User_model->get_single_record('tbl_income_wallet', ' user_id = "' . $this->session->userdata['user_id'] . '" AND type != "recharge_income"', 'ifnull(sum(amount),0) as balance');
+                                //$balance = $this->User_model->get_single_record('tbl_income_wallet', ' user_id = "' . $this->session->userdata['user_id'] . '" AND type != "recharge_income"', 'ifnull(sum(amount),0) as balance');
+                                $balance = $this->User_model->get_single_record('tbl_bank_details', ' user_id = "' . $this->session->userdata['user_id'] . '"', 'totalBalance');
                                 $directs = $this->User_model->get_single_record('tbl_users', ' sponser_id = "' . $this->session->userdata['user_id'] . '" AND paid_status > 0', 'count(id) as ids');
                                 $today_money = $this->User_model->get_single_record('tbl_money_transfer', ' user_id = "' . $this->session->userdata['user_id'] . '" AND (status = "SUCCESS" OR status = "ACCEPTED") and date(created_at) = date(now())', '*');
                                 if(empty($today_money)){
                                     if ($withdraw_amount >= 300 && $withdraw_amount <= 1000) {
                                         if($directs['ids'] >= 1){
                                         if ($withdraw_amount % 300 == 0) {
-                                            if ($balance['balance'] >= $withdraw_amount) {
+                                            if ($balance['totalBalance'] >= $withdraw_amount) {
                                                 if ($user['master_key'] == $master_key AND $checkBeneficary['account_ifsc'] != '6244482379_IDIB000R072') {
                                                     // if($kyc_status['kyc_status'] == 2){
                                                         // $transfer_amount = (round($data['amount'] * 85 / 100) - 10); // 10% IMPS charges including admin+tds
@@ -119,14 +117,14 @@ class IMPS extends CI_Controller {
 
                                                             if($jsondata['status'] != 'FAILED'){ 
                                                                 $DirectIncome = array(
-                                                                        'user_id' => $this->session->userdata['user_id'],
-                                                                        'amount' => -$withdraw_amount,
-                                                                        'type' => 'bank_transfer',
-                                                                        'description' => 'Bank Transfer',
-                                                                    );
-                                                                    $this->User_model->add('tbl_income_wallet', $DirectIncome);
-                                                                    
-                                                                }
+                                                                    'user_id' => $this->session->userdata['user_id'],
+                                                                    'amount' => -$withdraw_amount,
+                                                                    'type' => 'bank_transfer',
+                                                                    'description' => 'Bank Transfer',
+                                                                );
+                                                                $this->User_model->add('tbl_withdraw_transaction', $DirectIncome);
+                                                                $this->User_model->updateField('tbl_bank_details','totalBalance','totalBalance -'.$withdraw_amount,['user_id' => $this->session->userdata['user_id']]);
+                                                            }
 
                                                             if($jsondata['status'] == 'ACCEPTED' || $jsondata['status'] == 'SUCCESS'){
                                                                 $transactionArr = array(
@@ -254,7 +252,8 @@ class IMPS extends CI_Controller {
                     'type' => 'bank_transfer',
                     'description' => 'Failed Bank Transaction',
                 );
-                $this->User_model->add('tbl_income_wallet', $DirectIncome);
+                $this->User_model->add('tbl_withdraw_transaction', $DirectIncome);
+                $this->User_model->updateField('tbl_bank_details','totalBalance','totalBalance +'.$transaction['payable_amount'],['user_id' => $transaction['user_id']]);
             }
             $res['status'] = 'SUCCESS';
             $res['message'] = 'Request Updated Successfully';

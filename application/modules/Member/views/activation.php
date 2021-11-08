@@ -55,7 +55,7 @@ require_once 'header.php';?>
              <div class="card-body">
                <?php echo form_open();?>
                  <label>User ID <span class="text-danger">*</span></label>
-                 <input type="text" id="user_id" value="PSB" onblur="newFunction()" name="user_id" class="form-control" requried="true" placeholder="Enter User ID" required="true">
+                 <input type="text" id="user_id" value="" onblur="newFunction()" name="user_id" class="form-control" requried="true" placeholder="Enter User ID" required="true">
                   <label id="name"> </label>
                   <hr>
                  <label>Package <span class="text-danger">*</span></label>

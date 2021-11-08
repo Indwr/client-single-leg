@@ -155,12 +155,11 @@ if (!function_exists('get_income_name')) {
 
     function get_income_name($income_name) {
         $incomes = array(
-          'direct_income'=> 'Direct Income',
-          'level_income'=> 'Level Income',
-          'single_leg'=> 'Single Leg Income',
-          'royalty_income'=> 'Royalty Income',
-          'leadership_income'=> 'Leadership Income',
-          'non_working_income'=> 'Non-Working Income',
+            'self_income' => 'Self Income',
+            'direct_income'=> 'Direct Income',
+            'level_income'=> 'Level Income',
+            'fast_income'=> 'Fast Income',
+            'club_income'=> 'Club Income',
             'withdraw_request'=> 'Withdraw Request',
             'bank_transfer'=> 'Bank Withdrawal',
             'pin_generation' => 'Pin Generation',
@@ -175,15 +174,12 @@ if (!function_exists('incomes')) {
 
     function incomes() {
         $incomes = array(
-          'direct_income'=> 'Direct Income',
-          'level_income'=> 'Level Income',
-          'single_leg'=> 'Single Leg Income',
-          'royalty_income'=> 'Royalty Income',
-          'leadership_income'=> 'Leadership Income',
-          'non_working_income'=> 'Non-Working Income',
+            'self_income' => 'Self Income',
+            'direct_income'=> 'Direct Income',
+            'level_income'=> 'Level Income',
+            'fast_income'=> 'Fast Income',
+            'club_income'=> 'Club Income',
         );
-        //matching bonus
-        // return array_search($income_name, $incomes);
         return $incomes;
     }
 
