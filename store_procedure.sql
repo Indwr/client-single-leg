@@ -39,3 +39,10 @@ ALTER TABLE `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+  -- added by sanjay
+  ALTER TABLE `tbl_users` ADD `task` INT NOT NULL DEFAULT '0' AFTER `timmer`; 
+
+  ALTER TABLE `tbl_withdraw` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
+
+  ALTER TABLE `tbl_bank_details` ADD `bank_name` VARCHAR(100) NULL DEFAULT NULL AFTER `nominee_name`; 

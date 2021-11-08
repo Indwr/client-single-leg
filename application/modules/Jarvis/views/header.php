@@ -415,7 +415,7 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview" style="display: none;">
-                                    <!-- <li class="nav-item">
+                                    <li class="nav-item">
                                         <a href="<?php echo base_url('Jarvis/Withdraw') ?>" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>All Withdraw Request</p>
@@ -445,13 +445,13 @@
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Rejected Withdraw Request</p>
                                         </a>
-                                    </li> -->
-                                    <li class="nav-item">
-                                        <a href="<?php echo base_url('Jarvis/Management/BankTransactions'); ?>" class="nav-link">
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="<?php //echo base_url('Jarvis/Management/BankTransactions'); ?>" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Bank Transactions</p>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <!-- <li class="nav-item">
                                         <a href="<?php //echo base_url('Jarvis/Settings/sendIncome'); ?>" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>

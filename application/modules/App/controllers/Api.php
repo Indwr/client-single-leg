@@ -308,13 +308,20 @@ class Api extends CI_Controller
     public function getTimmer()
     {
         $params = $this->security->xss_clean($this->input->get());
-        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image');
+        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image,timmer');
         if ($checkUserId == null or empty($checkUserId)) {
             $response = ['status' => 500, 'message' => 'User Id not exist please check and try again later..'];
             echo json_encode($response);
             exit();
         }
         $timmer = $this->Main_model->get_single_record('settings', [], 'timmer');
+        $extentedTime = date('Y-m-d H:i:s',strtotime($checkUserId['timmer'].' + '.$timmer['timmer'].' minutes'));
+        $response['data'] = [
+            'current_time' => date('Y-m-d H:i:s'),
+            'user_time' => $checkUserId['timmer'],
+            'extented_time' => $extentedTime,
+        ];
+        echo json_encode($response);
         echo "<pre>";
         print_r($timmer['timmer']);
         die();
@@ -323,17 +330,58 @@ class Api extends CI_Controller
     public function cleanNow()
     {
         $params = $this->security->xss_clean($this->input->post());
-        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image');
+        $checkUserId = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image,task');
         if ($checkUserId == null or empty($checkUserId)) {
             $response = ['status' => 500, 'message' => 'User Id not exist please check and try again later..'];
             echo json_encode($response);
             exit();
         }
+        $this->Main_model->update('tbl_users', array('user_id' => $params['user_id']), ['timmer' => date('Y-m-d H:i:s'),'task' => ($checkUserId['task']+1)]);
+        //Check how many times income has been received by any user
+        if($checkUserId['task'] <= 5){
+        // send self income 
+            $selfCredit = [
+                'user_id' => $params['user_id'],
+                'amount' => 0.2,
+                'type' => 'self_income',
+                'description' => 'Self Income from task',
+            ];
+            $this->Main_model->add('tbl_income_wallet',$selfCredit);
 
-        // Check how many times income has been received by any user @sanjay
+            // Send Level Income if Sponsor and level users are eligible
 
-        // send self income @sanjay
-
-        // Send Level Income if Sponsor and level users are eligible @sanjay
+            $this->levelIncome($params['user_id'],$params['user_id']);
+        }
     }
+
+    private function levelIncome($user_id,$linkedID){
+        $amount = 0.2;
+        $levelopen = 0;
+        for($i=0;$i<20;$i++){
+            if($i%3 == 0){ $levelopen += 1;}
+            $incomeArr[$i] = ['amount' => $amount,'levelopen' => $levelopen];
+            if($i <= 14){
+                $amount = $amount - 0.01;
+            }
+        }
+        foreach($incomeArr as $key => $income){
+            $sponsor = $this->Main_model->get_single_record('tbl_users',['user_id' => $user_id],'sponser_id');
+            if(!empty($sponsor['sponser_id'])){
+                $userinfo = $this->Main_model->get_single_record('tbl_users',['user_id' => $sponsor['sponser_id']],'paid_status,upgrade_status');
+                if($userinfo['paid_status'] == 1){
+                    if($userinfo['upgrade_status'] >= $income['levelopen']){
+                        $creditIncome = [
+                            'user_id' => $sponsor['sponser_id'],
+                            'amount' => $income['amount'],
+                            'type' => 'level_income',
+                            'description' => 'Level income from User '.$linkedID.' at level '.$key,
+                        ];
+                        $this->Main_model->add('tbl_income_wallet',$creditIncome);
+                    }
+                }
+                $user_id = $sponsor['sponser_id'];
+            }
+        }
+    }
+    
 }

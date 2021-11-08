@@ -195,7 +195,7 @@ if ($user_info['disabled'] == 1 && $user_info['fake_id'] == 0) {
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-
+          <li><a href="<?php echo base_url('Member/Epin/CreateEpins'); ?>"><i class="fa fa-long-arrow-right"></i>Generate Epin</a></li>
           <li><a href="<?php echo base_url('Member/Epin/AvailebleEpin'); ?>"><i class="fa fa-long-arrow-right"></i>Avaliable E-Pins</a></li>
           <li><a href="<?php echo base_url('Member/Epin/epinHistory/1'); ?>"><i class="fa fa-long-arrow-right"></i>Used E-Pins</a></li>
           <li><a href="<?php echo base_url('Member/Epin/epinHistory/2'); ?>"><i class="fa fa-long-arrow-right"></i>Transfer E-Pins Details</a></li>
@@ -219,11 +219,14 @@ if ($user_info['disabled'] == 1 && $user_info['fake_id'] == 0) {
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="<?php echo base_url('Member/IMPS/index'); ?>"><i class="fa fa-long-arrow-right"></i>Add Beneficiary</a></li>
+          <li><a href="<?php echo base_url('Member/IMPS/withdraw'); ?>"><i class="fa fa-long-arrow-right"></i>Money Transfer</a></li>
+        </ul>
+        <!-- <ul class="sidebar-submenu">
+          <li><a href="<?php //echo base_url('Member/IMPS/index'); ?>"><i class="fa fa-long-arrow-right"></i>Add Beneficiary</a></li>
         </ul>
         <ul class="sidebar-submenu">
-          <li><a href="<?php echo base_url('Member/IMPS/beneficiaryDetails'); ?>"><i class="fa fa-long-arrow-right"></i>Money Transfer</a></li>
-        </ul>
+          <li><a href="<?php //echo base_url('Member/IMPS/beneficiaryDetails'); ?>"><i class="fa fa-long-arrow-right"></i>Money Transfer</a></li>
+        </ul> -->
       </li>
 
       <!--  <li>

@@ -119,5 +119,75 @@ class Epin extends CI_Controller {
 
   }
 
+  public function CreateEpins() {
+    if (is_logged_in()) {
+        $response = array();
+        if ($this->input->server('REQUEST_METHOD') == 'POST') {
+            $data = $this->security->xss_clean($this->input->post());
+            $this->form_validation->set_rules('pin_count', 'Pin Count', 'trim|numeric|required|xss_clean');
+            $this->form_validation->set_rules('pin_amount', 'Pin Amount', 'trim|numeric|required|xss_clean');
+            $this->form_validation->set_rules('master_key', 'Txn Pin', 'trim|required|xss_clean');
+            if ($this->form_validation->run() != FALSE) {
+              $user = $this->User_model->get_single_record('tbl_users', array('user_id' => $this->session->userdata['user_id']), 'user_id,master_key');
+              $balance = $this->User_model->get_single_record('tbl_bank_details', array('user_id' => $this->session->userdata['user_id']), 'totalBalance');
+              if(!empty($user)) {
+                  if($user['master_key'] == $data['master_key']){
+                      $pin_count = $this->input->post('pin_count');
+                      $totalAmount = $pin_count*$data['pin_amount'];
+                      if($balance['totalBalance'] >= $totalAmount){
+                        for ($i = 1; $i <= $pin_count; $i++) {
+                            $packArr = array(
+                                'user_id' => $this->session->userdata['user_id'],
+                                'epin' => $this->generate_pin(),
+                                'amount' => $data['pin_amount']
+                            );
+                            $res = $this->User_model->add('tbl_epins', $packArr);
+                        }
+                        $debitTransaction = array(
+                          'user_id' => $this->session->userdata['user_id'],
+                          'amount' => $totalAmount,
+                          'type' => 'pin_generation',
+                          'description' => 'Amount deducted for pin generation',
+                        );
+                        $this->User_model->add('tbl_withdraw_transaction', $debitTransaction);
+                        $this->User_model->updateField('tbl_bank_details','totalBalance','totalBalance -'.$totalAmount,['user_id' => $this->session->userdata['user_id']]);
+                        
+                        if ($res == TRUE) {
+                            $this->session->set_flashdata('success', 'Epins Generated Successfully');
+                        } else {
+                            $this->session->set_flashdata('error', 'Error While Generating Epins  Please Try Again ...');
+                        }
+                      } else {
+                        $this->session->set_flashdata('error', 'Insufficient balance');
+                      }
+                  }else{
+                      $this->session->set_flashdata('error', 'Invalid Master Key');
+                  }
+              } else {
+                  $this->session->set_flashdata('error', 'Invalid User ID');
+              }
+            } else {
+              $this->session->set_flashdata('error',validation_errors());
+            }
+        } 
+        $response['packages'] = $this->User_model->get_records('tbl_package',[],'title,price');
+        $this->load->view('create_epins', $response);
+    } else {
+      redirect('Member/Management/login');
+    }
+  }
+
+  private function generate_pin() {
+    if (is_logged_in()) {
+        $epin = md5(rand(100000, 9999999));
+        $pin = $this->User_model->get_single_record('tbl_epins', array('epin' => $epin), '*');
+        if (!empty($pin)) {
+            return $this->generate_pin();
+        } else {
+            return $epin;
+        }
+    }
+}
+
     
 }

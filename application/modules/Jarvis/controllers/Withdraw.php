@@ -102,7 +102,7 @@ class Withdraw extends CI_Controller {
             $segment = $this->uri->segment(4);
             $response['requests'] = $this->Main_model->get_limit_records('tbl_withdraw', $where, '*', $config['per_page'], $segment);
             foreach ($response['requests'] as $key => $request) {
-                $response['requests'][$key]['user'] = $this->Main_model->get_single_record('tbl_users', array('user_id' => $request['user_id']), 'id,name,first_name,last_name,sponser_id,email,phone');
+                $response['requests'][$key]['user'] = $this->Main_model->get_single_record('tbl_users', array('user_id' => $request['user_id']), 'id,name,sponser_id,email,phone');
                 $response['requests'][$key]['bank'] = $this->Main_model->get_single_record('tbl_bank_details', array('user_id' => $request['user_id']), '*');
             }
             $response['segament'] = $segment;
@@ -257,7 +257,8 @@ class Withdraw extends CI_Controller {
                                 'type' => $response['request']['type'],
                                 'description' => $data['remark'],
                             );
-                            $this->Main_model->add('tbl_income_wallet', $productArr);
+                            $this->Main_model->add('tbl_withdraw_transaction', $productArr);
+                            $this->Main_model->updateField('tbl_bank_details','totalBalance','totalBalance +'.$response['request']['amount'],['user_id' => $response['request']['user_id']]);
                             $this->session->set_flashdata('message', 'Withdraw request rejected');
                         } else {
                             $this->session->set_flashdata('message', 'Error while apporing rejection');

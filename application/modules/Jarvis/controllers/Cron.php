@@ -219,4 +219,8 @@ class Cron extends CI_Controller {
         endforeach;
     }
 
+    public function eligibleTask(){
+        $this->Main_model->update('tbl_users',['task >' => 0],['task' => 0]);
+    }
+
 }

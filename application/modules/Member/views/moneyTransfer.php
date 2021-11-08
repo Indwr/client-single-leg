@@ -16,7 +16,7 @@ require_once 'header.php';?>
 		    <h4 class="page-title"><?php 
 
         echo $header;
-        $balance = $this->User_model->get_single_record('tbl_income_wallet',array('user_id' => $this->session->userdata['user_id']), 'ifnull(sum(amount),0) as balance');
+        $balance = $this->User_model->get_single_record('tbl_bank_details',array('user_id' => $this->session->userdata['user_id']), 'totalBalance');
         ?></h4>
         <label class="badge badge-info">Minimum Withdrawal: Rs. 300/-</label>
 	   </div>
@@ -53,23 +53,23 @@ require_once 'header.php';?>
           <div class="card">
             <div class="card-header text-uppercase"><?php echo $header;?> </div>
              <div class="card-body">
-            <label class="badge badge-success">Avaliable Balance: Rs. <?php echo $balance['balance']; ?>/-</label>
+            <label class="badge badge-success">Avaliable Balance: Rs. <?php echo $balance['totalBalance']; ?>/-</label>
                <?php echo form_open();
 
-               $get = $this->User_model->get_single_record('tbl_add_beneficiary', array('id' => trim(addslashes($id))), 'beneficiary_account_no');
+               //$get = $this->User_model->get_single_record('tbl_add_beneficiary', array('id' => trim(addslashes($id))), 'beneficiary_account_no');
 
                $withdraw_status = $this->User_model->get_single_record('tbl_admin', array('id' => 1), 'withdraw_status');
 
                 // $ips = 0;
                 //   if($ips == 1){
-                   if(date('H:i') >= '14:00' AND date('H:i') <= '17:00' AND date('D') != 'Sun'){
+                   if(date('H:i') >= '14:00' AND date('H:i') <= '23:00' AND date('D') != 'Sun'){
                       if($withdraw_status['withdraw_status'] == 0){
-                         if(!empty($get)){
+                         //if(!empty($get)){
                          if($user_info['withdraw_status'] == 0){
                          ?>
-                          <label>Bank Account</label>
-                          <input type="text" id="default-datepicker" value="<?php echo $get['beneficiary_account_no']; ?>" class="form-control" requried="true" readonly="" required="">
-                          <hr>
+                            <!-- <label>Bank Account</label>
+                            <input type="text" id="default-datepicker" value="<?php echo $get['beneficiary_account_no']; ?>" class="form-control" requried="true" readonly="" required="">
+                            <hr> -->
                           <label>Amount</label>
                           <input type="text" id="default-datepicker" name="amount" value="" class="form-control" requried="true">
                           <hr>
@@ -92,9 +92,9 @@ require_once 'header.php';?>
                               echo '<label class="badge badge-danger">Withdrawal Closed!</label>';
                          }
 
-                         }else{
-                              echo '<label class="badge badge-danger">Beneficiary Account Not Found!</label>';
-                         }
+                        //  }else{
+                        //       echo '<label class="badge badge-danger">Beneficiary Account Not Found!</label>';
+                        //  }
                        }else{
                           echo '<label class="badge badge-danger">Withdraw Closed!</label>';
                        }

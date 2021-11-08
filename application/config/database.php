@@ -75,7 +75,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-	$dbUsername = 'sonu';
+	$dbUsername = 'root';
 	$dbPassword = 'password';
 	$dbDatabase = 'single-leg';
 } else {

@@ -292,6 +292,75 @@ class IMPS extends CI_Controller {
         echo json_encode($response);
     }
 
-    
+    public function withdraw(){
+        if (is_logged_in()) {
+            $response['header'] = 'Withdaw Money';
+            if ($this->input->server('REQUEST_METHOD') == 'POST') {
+                $data = $this->security->xss_clean($this->input->post());
+                // $this->form_validation->set_rules('otp', 'OTP', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('amount', 'Amount', 'trim|required|numeric|xss_clean');
+                $this->form_validation->set_rules('txn_password', 'Master Key', 'trim|required|xss_clean');
+                if ($this->form_validation->run() != FALSE) {
+                    $user = $this->User_model->get_single_record('tbl_users', array('user_id' => $this->session->userdata['user_id'], 'disabled' => 0, 'withdraw_status' => 0), '*');
+                    $withdraw_amount = trim(addslashes($this->input->post('amount')));
+                    $master_key = trim(addslashes($this->input->post('txn_password')));
+                    
+                    $balance = $this->User_model->get_single_record('tbl_bank_details', ' user_id = "' . $this->session->userdata['user_id'] . '"', 'totalBalance');
+                    $directs = $this->User_model->get_single_record('tbl_users', ' sponser_id = "' . $this->session->userdata['user_id'] . '" AND paid_status > 0', 'count(id) as ids');
+                    $today_money = $this->User_model->get_single_record('tbl_money_transfer', ' user_id = "' . $this->session->userdata['user_id'] . '" AND date(created_at) = date(now())', '*');
+                    if(empty($today_money)){
+                        if ($withdraw_amount >= 100 && $withdraw_amount <= 1000) {
+                            if($directs['ids'] >= 1){
+                                if ($withdraw_amount % 100 == 0) {
+                                    if ($balance['totalBalance'] >= $withdraw_amount) {
+                                        if ($user['master_key'] == $master_key) {
+                                            $tds = ($data['amount']*0.15);
+                                            $transfer_amount = (round($data['amount'] * 85 / 100));
+                                            
+                                            $DirectIncome = array(
+                                                'user_id' => $this->session->userdata['user_id'],
+                                                'amount' => -$withdraw_amount,
+                                                'type' => 'withdraw_request',
+                                                'description' => 'Withdraw Request',
+                                            );
+                                            $this->User_model->add('tbl_withdraw_transaction', $DirectIncome);
+                                            $this->User_model->updateField('tbl_bank_details','totalBalance','totalBalance -'.$withdraw_amount,['user_id' => $this->session->userdata['user_id']]);
+
+                                            $transactionArr = array(
+                                                'user_id' => $this->session->userdata['user_id'],
+                                                'amount' => $withdraw_amount,
+                                                'payable_amount' => $transfer_amount,
+                                                'tds' => $tds,
+                                                'type' => 'withdraw_request',
+                                            );
+                                            $this->User_model->add('tbl_withdraw', $transactionArr);
+                                            $this->session->set_flashdata('success', 'Request Accepeted Successfully');
+                                        } else {
+                                            $this->session->set_flashdata('error', 'Invalid Master Key');
+                                        }
+                                    } else {
+                                        $this->session->set_flashdata('error', 'Insuffcient Balance');
+                                    }
+                                } else {
+                                    $this->session->set_flashdata('error', 'Withdraw Amount is multiple of 300');
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', 'For Withdraw 1 direct required!');
+                            }
+                        } else {
+                            $this->session->set_flashdata('error', 'Minimum Withdrawal Amount is $100');
+                        }
+                    }else{
+                        $this->session->set_flashdata('error', 'You Can Withdraw Only Once in a Day');
+                    }
+                } else {
+                    $this->session->set_flashdata('error', validation_errors());
+                }
+            }
+            $this->load->view('moneyTransfer',$response);
+        } else {
+            redirect('Member/Management/login');
+        }
+    }
 
 }
