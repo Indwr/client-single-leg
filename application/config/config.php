@@ -25,7 +25,7 @@ ob_start();
 |
 */
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-	$config['base_url'] = 'http://localhost/projects/client-single-leg/client-single-leg/';
+	$config['base_url'] = 'http://localhost/client/single-leg/';
 } else {
 	$config['base_url'] = 'https://linearpay.co.in/';
 }
