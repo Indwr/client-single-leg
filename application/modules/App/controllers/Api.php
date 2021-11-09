@@ -11,7 +11,7 @@ class Api extends CI_Controller
         $this->load->library(array('session', 'encryption', 'form_validation', 'security', 'email'));
         $this->load->model(array('Main_model'));
         $this->load->helper(array('admin', 'security'));
-        date_default_timezone_set('asia/kolkata');
+        date_default_timezone_set('Asia/Kolkata');
     }
 
     public function index()
@@ -322,8 +322,8 @@ class Api extends CI_Controller
             'extented_time' => $extentedTime,
         ];
         echo json_encode($response);
-        echo "<pre>";
-        print_r($timmer['timmer']);
+        // echo "<pre>";
+        // print_r($timmer['timmer']);
         die();
     }
 
