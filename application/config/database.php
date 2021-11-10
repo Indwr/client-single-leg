@@ -79,9 +79,9 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$dbPassword = 'password';
 	$dbDatabase = 'single-leg';
 } else {
-	$dbUsername = 'single_leg_linearpay';
-	$dbPassword = 'KfPOOMSsqo74yuo2';
-	$dbDatabase = 'single_leg_linearpay';
+	$dbUsername = 'admin_linearpay';
+	$dbPassword = 'zlWGTXW9zO';
+	$dbDatabase = 'admin_linearpay';
 }
 $db['default'] = array(
 	'dsn'	=> '',
