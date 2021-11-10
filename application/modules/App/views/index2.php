@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!-- Mirrored from www.designesia.com/themes/eventbiz/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 May 2021 06:16:46 GMT -->
+
 <head>
     <meta charset="utf-8">
     <title>Eventbiz - Event and Conference Website Template</title>
@@ -11,23 +12,23 @@
     <meta name="author" content="">
 
     <!--[if lt IE 9]>
-	<script src="<?php echo base_url('Resource/App/Assets2/');?>js/html5shiv.js"></script>
+	<script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/html5shiv.js"></script>
 	<![endif]-->
 
     <!-- CSS Files
     ================================================== -->
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/animate.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/jquery.countdown.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/animate.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/jquery.countdown.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/style.css" type="text/css">
 
     <!-- background -->
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/bg.css" type="text/css">
-	
-	<!-- color -->
-    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/');?>css/color.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/bg.css" type="text/css">
+
+    <!-- color -->
+    <link rel="stylesheet" href="<?php echo base_url('Resource/App/Assets2/'); ?>css/color.css" type="text/css">
 </head>
 
 <body id="homepage">
@@ -42,9 +43,9 @@
                     <div class="col-md-12">
                         <!-- logo begin -->
                         <div id="logo">
-                            <a href="index.html">
-                                <img class="logo" src="<?php echo base_url('Resource/App/Assets2/');?>images/logo-light.png" alt="">
-                                <img class="logo-2" src="<?php echo base_url('Resource/App/Assets2/');?>images/logo-dark.png" alt="">
+                            <a href="/">
+                                <img class="logo" src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo-light.png" alt="">
+                                <img class="logo-2" src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo-dark.png" alt="">
                             </a>
                         </div>
                         <!-- logo close -->
@@ -57,23 +58,23 @@
                         <nav>
                             <ul id="mainmenu">
                                 <li><a class="active" href="#top">Home</a>
-									<ul>
-										<li><a href="02_index_multipage.html">New: Multipage</a></li>
-										<li><a href="index.html">Homepage 1</a></li>
-										<li><a href="index_2.html">Homepage 2</a></li>
-										<li><a href="index_3.html">Homepage 3</a></li>
-										<li><a href="index_4.html">Homepage 4</a></li>
-										<li><a href="index_5.html">Homepage 5</a></li>
-										<li><a href="index_6.html">Homepage 6</a></li>
-										<li><a href="index_7.html">Homepage 7</a></li>
-										<li><a href="index_8.html">Homepage 8</a></li>
-										<li><a href="index_9.html">Homepage 9</a></li>
-										<li><a href="index_10.html">Homepage 10</a></li>
-										<li><a href="index_11.html">[New] Homepage 11</a></li>
-										<li><a href="index_12.html">[New] Homepage 12</a></li>
-										<li><a href="index_anim_1.html">[New] Animated 1</a></li>
-									</ul>
-								</li>
+                                    <ul>
+                                        <li><a href="02_index_multipage.html">New: Multipage</a></li>
+                                        <li><a href="index.html">Homepage 1</a></li>
+                                        <li><a href="index_2.html">Homepage 2</a></li>
+                                        <li><a href="index_3.html">Homepage 3</a></li>
+                                        <li><a href="index_4.html">Homepage 4</a></li>
+                                        <li><a href="index_5.html">Homepage 5</a></li>
+                                        <li><a href="index_6.html">Homepage 6</a></li>
+                                        <li><a href="index_7.html">Homepage 7</a></li>
+                                        <li><a href="index_8.html">Homepage 8</a></li>
+                                        <li><a href="index_9.html">Homepage 9</a></li>
+                                        <li><a href="index_10.html">Homepage 10</a></li>
+                                        <li><a href="index_11.html">[New] Homepage 11</a></li>
+                                        <li><a href="index_12.html">[New] Homepage 12</a></li>
+                                        <li><a href="index_anim_1.html">[New] Animated 1</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#section-speakers">Speakers</a></li>
                                 <li><a href="#section-schedules">Schedules</a></li>
                                 <li><a href="#section-sponsors">Sponsors</a></li>
@@ -92,8 +93,8 @@
 
         <!-- content begin -->
         <div id="content" class="no-bottom no-top">
-			<div id="top"></div>
-			
+            <div id="top"></div>
+
             <!-- section begin -->
             <section id="section-intro" class="full-height relative owl-slide-wrapper no-top no-bottom text-light" data-stellar-background-ratio=".2">
                 <div class="overlay-bg">
@@ -105,10 +106,10 @@
 
                     <div id="custom-owl-slider" class="owl-slide" data-scroll-speed="2">
                         <div class="item">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/slider/1.jpg" alt="">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/slider/1.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/slider/2.jpg" alt="">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/slider/2.jpg" alt="">
                         </div>
                     </div>
 
@@ -125,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-					
+
                 </div>
             </section>
             <!-- section close -->
@@ -144,12 +145,12 @@
                         <div class="col-md-4 ">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all digital things. Has earned several awards and has experience of being a speaker at world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>Ben Sheridan</h3>
@@ -160,12 +161,12 @@
                         <div class="col-md-4 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>Sophie Lana</h3>
@@ -176,12 +177,12 @@
                         <div class="col-md-4 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/3.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/3.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/3.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/3.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>James Hoult</h3>
@@ -192,12 +193,12 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/4.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/4.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/4.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/4.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>Oscar Helman</h3>
@@ -208,12 +209,12 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/5.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/5.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/5.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/5.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>Rose Shipp</h3>
@@ -224,12 +225,12 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/6.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/6.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/6.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/6.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>Isaac Nicholas</h3>
@@ -240,12 +241,12 @@
                         <div class="col-md-3 mb30">
                             <div class="profile_pic text-center">
                                 <figure class="picframe mb30">
-                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/');?>images/team/7.jpg">
+                                    <a class="image-popup" href="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/7.jpg">
                                         <span class="overlay-v">
                                             <span>Interested in all the digital things. Has earned several awards and has been a speaker at many world-class seminars.</span>
                                         </span>
                                     </a>
-                                    <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/7.jpg" class="img-responsive" alt="">
+                                    <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/7.jpg" class="img-responsive" alt="">
                                 </figure>
 
                                 <h3>John Arnold</h3>
@@ -344,7 +345,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 10:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Ben Sheridan</h4>
@@ -362,7 +363,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">12:00 - 14:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Sophie Lana</h4>
@@ -380,7 +381,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">16:00 - 18:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/3.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/3.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>James Hoult</h4>
@@ -398,7 +399,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">20:00 - 22:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/4.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/4.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Oscar Helman</h4>
@@ -422,7 +423,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/5.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/5.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Rose Shipp</h4>
@@ -440,7 +441,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">12:00 - 14:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/6.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/6.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Isaac Nicholas</h4>
@@ -458,7 +459,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">16:00 - 18:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/7.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/7.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>John Arnold</h4>
@@ -476,7 +477,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">20:00 - 22:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Ben Sheridan</h4>
@@ -500,7 +501,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Sophie Lana</h4>
@@ -518,7 +519,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">12:00 - 14:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/3.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/3.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>James Hoult</h4>
@@ -536,7 +537,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">16:00 - 18:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/4.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/4.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Oscar Helman</h4>
@@ -554,7 +555,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">20:00 - 22:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/5.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/5.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Rose Shipp</h4>
@@ -578,7 +579,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/6.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/6.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Isaac Nicholas</h4>
@@ -596,7 +597,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">12:00 - 14:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/7.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/7.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>John Arnold</h4>
@@ -614,7 +615,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">16:00 - 18:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Ben Sheridan</h4>
@@ -632,7 +633,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">20:00 - 22:00 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Sophie Lana</h4>
@@ -656,7 +657,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/1.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/1.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Ben Sheridan</h4>
@@ -674,7 +675,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/2.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/2.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Ben Sheridan</h4>
@@ -692,7 +693,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/3.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/3.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>James Hoult</h4>
@@ -710,7 +711,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">08:00 - 12:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/team/4.jpg" class="img-circle" alt="">
+                                                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/team/4.jpg" class="img-circle" alt="">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Oscar Helman</h4>
@@ -790,7 +791,7 @@
                                         </blockquote>
                                     </div>
                                 </div>
-								
+
                             </div>
                         </div>
                     </div>
@@ -811,19 +812,19 @@
                         <div class="col-md-12 text-center">
                             <h3>Gold Sponsors</h3>
                             <div class="spacer-single"></div>
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/1.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/2.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/3.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/1.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/2.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/3.png" alt="" class="grey-hover">
 
                             <div class="spacer-double"></div>
 
                             <h3>Silver Sponsors</h3>
                             <div class="spacer-single"></div>
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/a1.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/a2.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/a3.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/a4.png" alt="" class="grey-hover">
-                            <img src="<?php echo base_url('Resource/App/Assets2/');?>images/logo/a5.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/a1.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/a2.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/a3.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/a4.png" alt="" class="grey-hover">
+                            <img src="<?php echo base_url('Resource/App/Assets2/'); ?>images/logo/a5.png" alt="" class="grey-hover">
                         </div>
                     </div>
                 </div>
@@ -943,11 +944,11 @@
             </section>
             <!-- section close -->
 
-			<!-- section begin -->
+            <!-- section begin -->
             <section id="section-map" class="no-top no-bottom" aria-label="map-container">
                 <div id="map"></div>
             </section>
-			<!-- section close -->
+            <!-- section close -->
 
             <!-- section begin -->
             <section id="section-quick-contact" class="bordertop">
@@ -979,8 +980,8 @@
                     </div>
                 </div>
             </section>
-			<!-- section close -->
-			
+            <!-- section close -->
+
         </div>
         <!-- content close -->
 
@@ -1005,7 +1006,7 @@
                 <div class="container text-center">
                     <div class="row">
                         <div class="col-md-12">
-                            &copy; Copyright 2019 - Eventbiz by Designesia                     
+                            &copy; Copyright 2019 - Eventbiz by Designesia
                         </div>
                     </div>
                 </div>
@@ -1017,29 +1018,30 @@
         <div id="preloader">
             <div class="preloader1"></div>
         </div>
-		
+
     </div>
 
     <!-- Javascript Files
     ================================================== -->
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.isotope.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/easing.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/owl.carousel.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.countTo.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/wow.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/enquire.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.stellar.min.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.plugin.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/jquery.countdown.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/countdown-custom.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.isotope.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/easing.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/owl.carousel.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.countTo.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/wow.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/enquire.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.stellar.min.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.plugin.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/jquery.countdown.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/countdown-custom.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/map.js"></script>
-    <script src="<?php echo base_url('Resource/App/Assets2/');?>js/designesia.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/map.js"></script>
+    <script src="<?php echo base_url('Resource/App/Assets2/'); ?>js/designesia.js"></script>
 
 </body>
 
 <!-- Mirrored from www.designesia.com/themes/eventbiz/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 May 2021 06:16:48 GMT -->
+
 </html>
