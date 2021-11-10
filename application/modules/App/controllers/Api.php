@@ -316,7 +316,7 @@ class Api extends CI_Controller
         }
         $timmer = $this->Main_model->get_single_record('settings', [], 'timmer');
         // $extentedTime = date('Y-m-d H:i:s', strtotime($checkUserId['timmer'] . ' + ' . $timmer['timmer'] . ' minutes'));
-        $extentedTime = date('Y-m-d H:i', strtotime('+' . $timmer['timmer'] . ' minutes', strtotime($checkUserId['timmer'])));
+        $extentedTime = date('Y-m-d H:i:s', strtotime('+' . $timmer['timmer'] . ' minutes', strtotime($checkUserId['timmer'])));
         $response['data'] = [
             'current_time' => date('Y-m-d H:i:s'),
             'user_time' => $checkUserId['timmer'],
