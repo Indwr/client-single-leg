@@ -210,6 +210,7 @@ class Api extends CI_Controller
         $userData = $this->Main_model->get_single_record('tbl_users', array('user_id' => $params['user_id']), 'id,name,image,sponser_id,package_amount,email');
         $sponsorName = $this->Main_model->get_single_record('tbl_users', array('user_id' => $userData['sponser_id']), 'name');
         $staticABNBPrice = 20;
+        $totalProfit = 5;
         $response['result'] = [
 
             'userData' => [
@@ -219,7 +220,8 @@ class Api extends CI_Controller
                 'sponsorName' => $sponsorName['name'] ?? '',
                 'email'     => $userData['email'] ?? '',
                 'profile_url' => $userData['image'] ?? '',
-                'abnbValue'  => (float)$staticABNBPrice
+                'abnbValue'  => (float)$staticABNBPrice,
+                'totalProfit' => (float)$totalProfit,
             ],
             'incomes' => [
                 [
