@@ -361,6 +361,9 @@ class Api extends CI_Controller
 
             $this->levelIncome($params['user_id'], $params['user_id']);
         }
+        $response = ['status' => 200, 'message' => 'Task Cleaned'];
+        echo json_encode($response);
+        exit();
     }
 
     private function levelIncome($user_id, $linkedID)
