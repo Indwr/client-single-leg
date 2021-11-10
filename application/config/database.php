@@ -80,7 +80,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$dbDatabase = 'single-leg';
 } else {
 	$dbUsername = 'admin_linearpay';
-	$dbPassword = 'zlWGTXW9zO';
+	$dbPassword = '9XtnVS7vDf';
 	$dbDatabase = 'admin_linearpay';
 }
 $db['default'] = array(
