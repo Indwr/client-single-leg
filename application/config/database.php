@@ -79,8 +79,8 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	$dbPassword = 'password';
 	$dbDatabase = 'single-leg';
 } else {
-	$dbUsername = 'admin_linearpay';
-	$dbPassword = '9XtnVS7vDf';
+	$dbUsername = 'vikas';
+	$dbPassword = 'password';
 	$dbDatabase = 'admin_linearpay';
 }
 $db['default'] = array(
